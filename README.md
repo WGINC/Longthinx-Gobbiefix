@@ -182,4 +182,5 @@ Gobbie say thankyhug to all who workyfixed before gobbie:
   built from portfix's reading of the PS2.
 - **Krauerlabs**: SpectralFix, which dagnyfix's aura fix ports; aura_soft does its two picture changes.
 - **Daleterrence**: the prototype dagnyfix's decalfix grew from.
+- **Geno**: helpyhand with gobbiefix's Linux side (coming soon).
 - **SQUARE ENIX**: FINAL FANTASY XI, and everything of it. Gobbie no belong to them.
