@@ -1,7 +1,7 @@
 # Longthinx gobbiefix
 
-> **To SQUARE ENIX's Creative Studio 3:** if you would like to put any of Dellingr's code or ideas from gobbiefix into
-> the game, feel free to. Just credit Dellingr and Geno; or, if you can't credit us directly for legal reasons, a
+> **To SQUARE ENIX's Creative Studio 3:** if you would like to put any of our code or ideas from gobbiefix into
+> the game, feel free to. Just credit Dellingr and Geno (us); or, if you can't credit us directly for legal reasons, a
 > tongue-in-cheek thank-you to the "Beastmen Alliance" will do. (This covers Dellingr's own work; the parts from
 > others named in Credits at the bottom stay under their own authors' terms.)
 
