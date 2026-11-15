@@ -14,7 +14,7 @@
 
 *Pshhh... Shkohhh...*
 
-Hullo, adventurer! Gobbie bring fixings for youuugame: a new renderer (d3d8on11, on Direct3D 12), a fasterfaster
+Hullo, adventurer! Gobbie bring fixings for youuugame: a new renderer (d3d8on11, on Direct3D 12), a fastyfaster
 gameloop (speedfix), and the kit that hold them together (xikit). Game run faster, smoother, and gobbie no change how
 it look except where this page say so. *Pshhh...*
 
@@ -25,7 +25,7 @@ it look except where this page say so. *Pshhh...*
    Game somewhere else? `install.bat "D:\path\to\PlayOnlineViewer"`.
 3. Start the game sameway as always. Nothing else to start: game load gobbie by itself. *Shkohhh...*
 
-Gobbie keep youuu oldthings safesafe in the sack:
+Gobbie keep youuu oldthings safeykeep in the sack:
 - the `d3d8.dll` that was there (dgVoodoo's) become `d3d8_before_kit.dll`;
 - youuu `gobbiefix.ini` stay as it is when youuu install again (`install.bat /defaults` put gobbievalues back, and keep
   yours as `gobbiefix.ini.before_gobbiefix`);
@@ -33,7 +33,7 @@ Gobbie keep youuu oldthings safesafe in the sack:
 
 ## Gobbie moveout
 
-`uninstall.bat` (as administrator, game closed). *Pshhh...* gobbie packpack the shinybits and put the old `d3d8.dll`
+`uninstall.bat` (as administrator, game closed). *Pshhh...* gobbie packystow the shinybits and put the old `d3d8.dll`
 back. The `.ini` files and logs stay.
 
 ## Youknobs: gobbiefix.ini
@@ -42,12 +42,12 @@ In the PlayOnlineViewer folder. Change a value, save, start the game: gobbie sni
 youuu; the other `.ini` files is gobbiepot (gobbiefix.ini write over the few keys it own in them, every gamestart).
 
 ### frame_cap (0)
-How many frames a second the game may make. **0** = no cap: game go fastfast as it can. **10 to 1000** = gobbie hold it
+How many frames a second the game may make. **0** = no cap: game go fastzoom as it can. **10 to 1000** = gobbie hold it
 to that many. Gobbie measured a 120 cap on youuu kind of Mac and it no make things smoother, so gobbie leave it off.
 With a cap, `smooth_pacing` take a nap: only one of the two work at a time.
 
 ### smooth_pacing (1)
-**1** = gobbie space the frames eveneven. Each frame wait until the time most frames (9 in 10) of the last 120 took, so
+**1** = gobbie space the frames evensteady. Each frame wait until the time most frames (9 in 10) of the last 120 took, so
 the speed follow the scene but the steps stay even. Measured: frames taking over twice as long as their neighbours went
 from 67 to 19 a minute. **0** = each frame go the moment it is ready (more upsanddowns). *Shkohhh...*
 
@@ -71,7 +71,7 @@ How sharp textures stay when youuu see them slantways, like a road going away fr
 Needs `mipmaps=1`.
 
 ### smooth_names (1)
-**1** = names over heads shrink smoothsmooth as things walk away. **0** = the game's own 80 little sizesteps (youuu see
+**1** = names over heads shrink smoothyslide as things walk away. **0** = the game's own 80 little sizesteps (youuu see
 names pulse bigger and smaller as people move).
 
 ### fitted_shadows (1)
@@ -86,17 +86,59 @@ the next update, the sameway the game already does when too many sounds ask in o
 voice is free. Only sounds the game itself keep while youuu cannot hear them is kept; the rest go as before. **0** = the
 game's way.
 
+### sphere_shine (1)
+*Pshhh...* Some metal, like Warlord Rojgnoj's gold armour, is meant to shine with a reflection. On PC the game read the
+wrong corner of the reflection picture at half the PS2's strength, so the metal look dull. **1** = gobbie draw it the
+PS2's way: right part of the picture, full strength. **0** = the game's dull way. (How the PS2 does it was measured by
+voetre for portfix; gobbie made its own version inside gobbie's model drawing.)
+
+### flare_fix (1)
+Lamps and lanterns far away have a glow that blinkyflick behind its own lamp. *Shkohhh...* **1** = gobbie draw the glow a
+tiny bit nearer (0.4, along the glow's own depth), so it stay in front. **0** = the game's blinky way. (From dagnyfix, by
+Dellingr; gobbie move it with the glow's position instead of copying its points.)
+
+### disintegrate (1)
+When the Shadow Lord (and a few others) change form, on the PS2 the first body break into dark shards that tumble
+away, with purple smoke and a wobbly heat haze. On the PC it just... stay whole. *Shkohhh...* **1** = gobbie make it
+break, the smooth way (voetre's portfix code, copied in, MIT licence). **2** = gobbie's own way, with the flickery
+body like the PS2 cutscene (needs the frame settings that come with gobbiefix: frame_step or uncap). **0** = the
+game's way.
+
+### decal_fix (1)
+Circles on the ground (summoning circles, spell circles) come out squished like an egg, and grow and shrink with the
+camera. *Shkohhh...* The game draw them into a little square picture first, but with the screen's shape and zoom.
+**1** = gobbie give that square picture its own square view, so the circle come out round and as big as the game made
+it. **0** = the game's eggy way. (dagnyfix, by Dellingr, found it; gobbie fix it where the game draw it.)
+
+### aura_size (1024), aura_soft (1), aura_boost (0), aura_trail (0)
+*Shkohhh...* The glowy auras around summons is drawn from a small picture blown up big, and its copies sit too
+close on big screens, so the edges come out jaggy. **aura_size** = how big the picture is (1024; 256 the game's, 512,
+2048, 4096). **aura_soft=1** = gobbie spread the copies out for youuu screen and draw the hard middle copy soft (the
+trick dagnyfix use, done inside the game's own drawing, so no extra cost).
+
+Gobbie's own extras, not in the game: **aura_boost** 0 to 5 = each notch make the aura a quarter thicker and
+brighter. **aura_trail** 0 to 50 = how many afterimages trail behind a moving aura thing, each a little gap behind the one
+ahead (**aura_trail_gap**, 25 = a quarter yalm; bigger = more spread out). They stay till there is that many, then the
+oldest go. They follow where the thing was, not the camera, and keep their size when the camera move. Standing still,
+the trail pull in to one faint one. **aura_trail_alpha** = how bright they are, in percent (100 normal).
+
+**aura_trail_advanced** (0) = the advanced afterimage trail: each afterimage is a real 3D ghost of the body in the pose
+it had there, so it look right from any camera angle (the normal ones are flat pictures, which keep the angle they were
+taken from). **Warning, gobbie say: it may slow youuu game down**: every afterimage draws the whole body again, so 50 of
+them is a lot of drawing. Try a few first. Each
+afterimage is one more see-through picture over the screen, so a long trail cost a little speed.
+
 ### renderer (d3d12)
-**d3d12** = gobbie's fastfast renderer. If Direct3D 12 no start on a machine, it use Direct3D 11 by itself. **d3d11** =
+**d3d12** = gobbie's fastzoom renderer. If Direct3D 12 no start on a machine, it use Direct3D 11 by itself. **d3d11** =
 always the olderway (try this only if d3d12 give youuu trouble).
 
 ### update_notice (1)
-When the game get patched, gobbie sniffsniff its build. If gobbie no know the new build, the game still run with the new
+When the game get patched, gobbie sniffysnoop its build. If gobbie no know the new build, the game still run with the new
 renderer, but speedfix and the other fixings stay in the sack (gobbie no know where things is), and **1** = a window
 tell youuu to fetch a new gobbiefix. **0** = no window. *Shkohhh...*
 
 ### debug (0)
-**0** = shortshort, tidy logs. **1** = gobbie scribblescribble statistics in the logs (for helpfixing problems).
+**0** = shortytidy logs. **1** = gobbie scribblywrite statistics in the logs (for helpfixing problems).
 Easiest: `gobbiefix_debug.bat on` or `gobbiefix_debug.bat off` (as administrator; takes effect at next gamestart).
 "on" leave a little file, `gobbiefix_debug.on`, in the gamefolder: while it is there, debug is on whatever
 gobbiefix.ini say. "off" take it away.

@@ -15,7 +15,7 @@ if exist "%DST%\gfx_recon_ingame.dll" del /q "%DST%\gfx_recon_ingame.dll"
 if exist "%DST%\d3d8_before_kit.dll" move /y "%DST%\d3d8_before_kit.dll" "%DST%\d3d8.dll" >nul
 del /q "%DST%\kit_installed.txt"
 if exist "%DST%\gobbiefix_debug.on" del /q "%DST%\gobbiefix_debug.on"
-echo  Pshhh... gobbie packpack the shinybits. Old d3d8.dll come back outta the sack.
+echo  Pshhh... gobbie packystow the shinybits. Old d3d8.dll come back outta the sack.
 echo  Shkohhh... gobbie leave the .ini files and logs, in case youuu want gobbie back.
 echo  Byebye, adventurer! Pshhh...
 exit /b 0
@@ -23,5 +23,5 @@ exit /b 0
 echo  Pshhh... gobbie no smell gobbiefix in "%DST%" (no kit_installed.txt). Nothing to take.
 exit /b 2
 :running
-echo  Shkohhh! Game still running! Youuu close it first, then gobbie workwork.
+echo  Shkohhh! Game still running! Youuu close it first, then gobbie workyfix.
 exit /b 2

@@ -12,7 +12,7 @@ if /i "%~1"=="/defaults" (set "DEF=1" & shift)
 set "DST=%~1"
 if "%DST%"=="" set "DST=C:\Program Files (x86)\PlayOnline\SquareEnix\PlayOnlineViewer"
 if exist "%~dp0logo.txt" type "%~dp0logo.txt"
-echo  Pshhh... Shkohhh... Gobbie sniffsniff for game in "%DST%"...
+echo  Pshhh... Shkohhh... Gobbie sniffysnoop for game in "%DST%"...
 if not exist "%DST%\pol.exe" if not exist "%DST%\polcore.dll" goto nofolder
 tasklist /fi "imagename eq pol.exe" | find /i "pol.exe" >nul
 if not errorlevel 1 goto running
@@ -20,7 +20,7 @@ echo  Found it! Yesyes. Pshhh...
 if exist "%DST%\d3d8_before_kit.dll" goto copyfiles
 if not exist "%DST%\d3d8.dll" goto copyfiles
 copy /y "%DST%\d3d8.dll" "%DST%\d3d8_before_kit.dll" >nul
-echo  Old d3d8.dll go in gobbiesack, safesafe. (d3d8_before_kit.dll)
+echo  Old d3d8.dll go in gobbiesack, safeykeep. (d3d8_before_kit.dll)
 :copyfiles
 rem (wildcards unquoted, from inside the folder: some cmd versions do not expand a quoted pattern)
 pushd "%SRC%"
@@ -50,5 +50,5 @@ echo  Pshhh... Hmmm. Gobbie no smell game there. Youuu tell gobbie where:
 echo      install.bat "C:\path\to\PlayOnlineViewer"
 exit /b 2
 :running
-echo  Shkohhh! Game still running! Youuu close it first, then gobbie workwork.
+echo  Shkohhh! Game still running! Youuu close it first, then gobbie workyfix.
 exit /b 2

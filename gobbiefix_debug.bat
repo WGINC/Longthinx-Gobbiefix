@@ -15,8 +15,8 @@ if "%V%"=="1" >"%DST%\gobbiefix_debug.on" echo gobbiefix debug mode: d3d8.dll se
 if "%V%"=="0" if exist "%DST%\gobbiefix_debug.on" del /q "%DST%\gobbiefix_debug.on"
 if "%V%"=="1" if not exist "%DST%\gobbiefix_debug.on" goto failed
 if "%V%"=="0" if exist "%DST%\gobbiefix_debug.on" goto failed
-if "%V%"=="1" echo  Pshhh... Debug on! Gobbie scribblescribble lotsa stats in d3d8on11.log and xikit.log next gamestart.
-if "%V%"=="0" echo  Shkohhh... Debug off. Gobbie keep logs shortshort and tidy next gamestart.
+if "%V%"=="1" echo  Pshhh... Debug on! Gobbie scribblywrite lotsa stats in d3d8on11.log and xikit.log next gamestart.
+if "%V%"=="0" echo  Shkohhh... Debug off. Gobbie keep logs shortytidy next gamestart.
 echo  Logs is in "%DST%".
 exit /b 0
 :usage
