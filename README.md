@@ -5,7 +5,7 @@
 > tongue-in-cheek thank-you to the "Beastmen Alliance" will do. (This covers Dellingr's own work; the parts from
 > others named in Credits at the bottom stay under their own authors' terms.)
 > 
-> Notes on each fix, with code, in English and Japanese, and how to reach us:
+> Notes on each fix, with code, in English and Japanese, and how to reach me:
 > [Longthinx-Gobbiefix-Source-Files](https://github.com/WGINC/Longthinx-Gobbiefix-Source-Files).
 
 ```
