@@ -163,3 +163,15 @@ where it happened) and `xikit.log`. Something wrong? Turn debug on, play until i
 
 Gobbie's own work is under the GNU GPL, version 3 only (`COPYING.txt` has the whole thing); FINAL FANTASY XI and everything of it belong to SQUARE ENIX, and gobbie no
 belong to them. The real words is in `LICENSE.txt` (plain English, no gobbiespeak, *Shkohhh...*), and they is what count.
+
+## Credits
+
+Gobbie say thankyhug to all who workyfixed before gobbie:
+
+- **Dellingr**: gobbiefix itself (the d3d8on11 renderer, the xikit kit, speedfix), speedfix_hook (speedfix's
+  beginning), and dagnyfix (its flarefix, aura fix and decalfix are where flare_fix, aura_size and decal_fix come from).
+- **voetre**: portfix (MIT licence). disintegrate=1 is portfix's code, copied; sphere_shine and disintegrate=2 are
+  built from portfix's reading of the PS2.
+- **Krauerlabs**: SpectralFix, which dagnyfix's aura fix ports; aura_soft does its two picture changes.
+- **Daleterrence**: the prototype dagnyfix's decalfix grew from.
+- **SQUARE ENIX**: FINAL FANTASY XI, and everything of it. Gobbie no belong to them.
