@@ -1,3 +1,10 @@
+> **Experimental branch `experimental/pixel-shader-0`: for testing, not a release.** This is V0.6 with one change in
+> `d3d8.dll`: `SetPixelShader(0)` (switch to the fixed-function pipeline) now succeeds, and `GetPixelShader` answers 0.
+> Before, the call was refused. FFXIDB (Windower) makes that call, and the refusal was logged
+> ("not implemented: IDirect3DDevice8::SetPixelShader (failed), called from FFXIDB.dll"). Built from V0.6's own source
+> with only this change; every other file is V0.6's. Install and uninstall as below. Please send `d3d8on11.log` and
+> `xikit.log`, and say whether FFXIDB and TargetRing look right.
+
 # Longthinx gobbiefix
 
 > **To SQUARE ENIX's Creative Studio 3:** if you would like to put any of our code or ideas from gobbiefix into
