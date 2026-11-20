@@ -21,9 +21,11 @@ if "%DST%"=="" set "DST=C:\Program Files (x86)\PlayOnline\SquareEnix\PlayOnlineV
 if "%DST:~-1%"=="\" set "DST=%DST:~0,-1%"
 if not exist "%DST%\kit_installed.txt" goto noini
 if defined V goto chosen
-choice /c 10Q /n /m " Pshhh... gobbie debug: 1 = on, 0 = off, Q = never mind: "
-if errorlevel 3 goto done
-if errorlevel 2 (set "V=0") else set "V=1"
+set "ANS="
+set /p "ANS= Pshhh... gobbie debug: 1 = on, 0 = off, then Enter; anything else = never mind: "
+if "%ANS%"=="1" set "V=1"
+if "%ANS%"=="0" set "V=0"
+if not defined V goto done
 :chosen
 call :canwrite
 if not errorlevel 1 goto work
@@ -62,7 +64,7 @@ set "RC=2"
 goto done
 :done
 if defined NOPAUSE exit /b %RC%
-echo(
+echo.
 pause
 exit /b %RC%
 rem (exit code 1: there is no write access; 0: a test file was made and deleted)

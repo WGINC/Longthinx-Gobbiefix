@@ -30,20 +30,22 @@ goto look
 tasklist /fi "imagename eq pol.exe" | find /i "pol.exe" >nul
 if not errorlevel 1 goto running
 if defined ELEV goto work
-echo(
+echo.
 echo  Gobbie do this in "%DST%", and nothing else:
 pushd "%SRC%"
 for %%f in (*.dll *.exe *.txt) do if exist "%DST%\%%f" echo    - take away %%f
 popd
-if exist "%DST%\gfx_recon_ingame.dll" echo    - take away gfx_recon_ingame.dll (an older gobbiefix's)
-if exist "%DST%\d3d8_before_kit.dll" echo    - put the old d3d8.dll back (from d3d8_before_kit.dll)
+if exist "%DST%\gfx_recon_ingame.dll" echo    - take away gfx_recon_ingame.dll, an older gobbiefix's
+if exist "%DST%\d3d8_before_kit.dll" echo    - put the old d3d8.dll back from d3d8_before_kit.dll
 if exist "%DST%\gobbiefix_debug.on" echo    - take away gobbiefix_debug.on
 echo    - take away kit_installed.txt
 echo    - leave the .ini files and logs
-echo(
+echo.
 if defined YES goto confirmed
-choice /c YN /n /m " Gobbie go ahead? Y = yes, N = no: "
-if errorlevel 2 goto declined
+rem (set /p, not choice: anything but Y, or no answer at all, is a no)
+set "ANS="
+set /p "ANS= Gobbie go ahead? Y = yes, N = no, then Enter: "
+if /i not "%ANS%"=="y" goto declined
 :confirmed
 call :canwrite
 if not errorlevel 1 goto work
@@ -93,7 +95,7 @@ set "RC=2"
 goto done
 :done
 if defined NOPAUSE exit /b %RC%
-echo(
+echo.
 pause
 exit /b %RC%
 rem (exit code 1: there is no write access; 0: a test file was made and deleted)

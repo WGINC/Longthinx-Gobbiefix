@@ -42,22 +42,24 @@ tasklist /fi "imagename eq pol.exe" | find /i "pol.exe" >nul
 if not errorlevel 1 goto running
 echo  Found it! Yesyes. Pshhh...
 if defined ELEV goto work
-echo(
+echo.
 echo  Gobbie do this in that folder, and nothing else (no registry, no other folder, nothing downloaded):
 pushd "%SRC%"
 for %%f in (*.dll *.exe *.txt) do echo    - put in %%f
 popd
-if exist "%DST%\d3d8.dll" if not exist "%DST%\d3d8_before_kit.dll" echo    - keep the d3d8.dll there now as d3d8_before_kit.dll (uninstall.bat put it back)
+if exist "%DST%\d3d8.dll" if not exist "%DST%\d3d8_before_kit.dll" echo    - keep the d3d8.dll there now as d3d8_before_kit.dll; uninstall.bat put it back
 echo    - put in d3d8on11.ini, speedfix.ini, xikit.ini (gobbie's own; an older one kept once as NAME.ini.before_gobbiefix)
-if exist "%DST%\gfx_recon_ingame.dll" echo    - take away gfx_recon_ingame.dll (an older gobbiefix's; this one no need it)
-if not exist "%DST%\gobbiefix.ini" echo    - put in gobbiefix.ini (youknobs)
+if exist "%DST%\gfx_recon_ingame.dll" echo    - take away gfx_recon_ingame.dll, an older gobbiefix's; this one no need it
+if not exist "%DST%\gobbiefix.ini" echo    - put in gobbiefix.ini, youknobs
 if exist "%DST%\gobbiefix.ini" if defined DEF echo    - put gobbiefix.ini back to gobbieway; yours kept as gobbiefix.ini.before_gobbiefix
 if exist "%DST%\gobbiefix.ini" if not defined DEF echo    - leave youuu gobbiefix.ini as it is
 echo    - write kit_installed.txt (so uninstall.bat know what is gobbie's)
-echo(
+echo.
 if defined YES goto confirmed
-choice /c YN /n /m " Gobbie go ahead? Y = yes, N = no: "
-if errorlevel 2 goto declined
+rem (set /p, not choice: anything but Y, or no answer at all, is a no)
+set "ANS="
+set /p "ANS= Gobbie go ahead? Y = yes, N = no, then Enter: "
+if /i not "%ANS%"=="y" goto declined
 :confirmed
 call :canwrite
 if not errorlevel 1 goto work
@@ -91,7 +93,7 @@ if not defined DEF echo  Youuu already got gobbiefix.ini. Gobbie no touchy youkn
 if defined DEF echo  gobbiefix.ini back to gobbieway. Yours wait in gobbiefix.ini.before_gobbiefix.
 :marked
 >"%DST%\kit_installed.txt" echo installed by Longthinx gobbiefix (install.bat)
-echo(
+echo.
 echo  Pshhh... Allfixed! Youuu go play now. Start game sameway as always. Shkohhh...
 goto done
 :elevate
@@ -126,7 +128,7 @@ set "RC=2"
 goto done
 :done
 if defined NOPAUSE exit /b %RC%
-echo(
+echo.
 pause
 exit /b %RC%
 rem (exit code 1: there is no write access; 0: a test file was made and deleted)
