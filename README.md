@@ -29,9 +29,13 @@ it look except where this page say so. *Pshhh...*
 ## Gobbie movein
 
 1. Close the game.
-2. Command Prompt **as administrator**, in this folder: `install.bat`.
-   Game somewhere else? `install.bat "D:\path\to\PlayOnlineViewer"`.
-3. Start the game sameway as always. Nothing else to start: game load gobbie by itself. *Shkohhh...*
+2. Double-click `install.bat`. Gobbie show youuu everything it will put in the game folder, and nothing else (no
+   registry, no other folder, nothing downloaded), and ask **Y** or **N**.
+3. The game folder is in Program Files, and Windows let only an administrator write there. So after youuu say Y,
+   Windows ask in its own box if gobbie may make changes. Say Yes, and gobbie workyfix in a new window. (Game in a
+   folder youuu can write already? Then no box.) Gobbie no find the game? It ask youuu where the PlayOnlineViewer folder
+   is: paste it, Enter.
+4. Start the game sameway as always. Nothing else to start: game load gobbie by itself. *Shkohhh...*
 
 Gobbie keep youuu oldthings safeykeep in the sack:
 - the `d3d8.dll` that was there (dgVoodoo's) become `d3d8_before_kit.dll`;
@@ -39,10 +43,26 @@ Gobbie keep youuu oldthings safeykeep in the sack:
   yours as `gobbiefix.ini.before_gobbiefix`);
 - the other `.ini` files is gobbiepot; an older one is kept once as `NAME.ini.before_gobbiefix`.
 
+The `.bat` files is plain text: open one in Notepad to read every line before youuu run it. `SHA256SUMS.txt` has a
+sniffprint of each file in `files\`.
+
+### No want to run a gobbiescript? Movein by hand
+
+*Pshhh...* Fine fine. Game closed, then in File Explorer:
+1. Open the PlayOnlineViewer folder (usually `C:\Program Files (x86)\PlayOnline\SquareEnix\PlayOnlineViewer`).
+2. Is there a `d3d8.dll`? Rename it to `d3d8_before_kit.dll` (that is the old one, safeykeep).
+3. Copy everything in gobbie's `files\` folder into the PlayOnlineViewer folder. Already got a `gobbiefix.ini` with
+   youuu own knobs? Leave that one out of the copy.
+4. Windows say "You'll need to provide administrator permission": that is the same Program Files lockybox; Continue.
+
+Moveout by hand: delete the files youuu copied (the list is `SHA256SUMS.txt`), and rename `d3d8_before_kit.dll` back to
+`d3d8.dll`.
+
 ## Gobbie moveout
 
-`uninstall.bat` (as administrator, game closed). *Pshhh...* gobbie packystow the shinybits and put the old `d3d8.dll`
-back. The `.ini` files and logs stay.
+Double-click `uninstall.bat` (game closed). It show what it take away, ask Y or N, and Windows ask its box the same way.
+*Pshhh...* gobbie packystow the shinybits and put the old `d3d8.dll` back. The `.ini` files and logs stay. (Moved in by
+hand? `uninstall.bat` look for `kit_installed.txt`, which only install.bat write: moveout by hand too.)
 
 ## Youknobs: gobbiefix.ini
 
@@ -149,7 +169,8 @@ tell youuu to fetch a new gobbiefix. **0** = no window. *Shkohhh...*
 
 ### debug (0)
 **0** = shortytidy logs. **1** = gobbie scribblywrite statistics in the logs (for helpfixing problems).
-Easiest: `gobbiefix_debug.bat on` or `gobbiefix_debug.bat off` (as administrator; takes effect at next gamestart).
+Easiest: double-click `gobbiefix_debug.bat` and press 1 (on) or 0 (off); Windows ask its box, the same as install
+(takes effect at next gamestart). From a Command Prompt: `gobbiefix_debug.bat on` or `gobbiefix_debug.bat off`.
 "on" leave a little file, `gobbiefix_debug.on`, in the gamefolder: while it is there, debug is on whatever
 gobbiefix.ini say. "off" take it away.
 
