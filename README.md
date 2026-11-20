@@ -102,8 +102,10 @@ voetre for portfix; gobbie made its own version inside gobbie's model drawing.)
 
 ### flare_fix (1)
 Lamps and lanterns far away have a glow that blinkyflick behind its own lamp. *Shkohhh...* **1** = gobbie draw the glow a
-tiny bit nearer (0.4, along the glow's own depth), so it stay in front. **0** = the game's blinky way. (From dagnyfix, by
-Dellingr; gobbie move it with the glow's position instead of copying its points.)
+tiny bit nearer to you (0.4, straight toward the camera), so it stay in front and stay right where it was on screen.
+**0** = the game's blinky way. (From dagnyfix's flare fix v4.4, by Dellingr; gobbie move it with the glow's position
+instead of copying its points. V0.7: the old way pushed glows sideways where the game turns or stretches them, so lights
+in zones after the base game sat in the wrong place. Fixyfixed.)
 
 ### disintegrate (1)
 When the Shadow Lord (and a few others) change form, on the PS2 the first body break into dark shards that tumble
