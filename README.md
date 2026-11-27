@@ -185,6 +185,22 @@ where it happened) and `xikit.log`. Something wrong? Turn debug on, play until i
 - On a Mac with Parallels, gobbie measured with a slowmotion phone that some frames Windows show never reach the Mac's
   screen (lost after Windows hand them over). That is outside the game: gobbie cannot fixit from inside. Setting the
   Mac's screen to a fixed 60 Hz instead of ProMotion no fixit either.
+- V0.7.2/V0.7.3: the game have its own zoneshaders, used only when its setting 0017 is on (registry). Gobbie's renderer
+  no can draw them yet, so with 0017 on the world went invisible and only people showed. Now speedfix keep 0017 off
+  while gobbie's renderer run (`game_shaders=0` in speedfix.ini; **1** = the game's own setting, world gone again).
+- V0.7.5: with Windower, no mod's chat command (`/hb`, `/stext`, `/photo`, `/prishe`) ever worked: Windower puts its own
+  jump at the start of the game's command line, and gobbie's kit no would go in front of it with gobbie's public map
+  of the game. Now it does, and if it still say no, the log names the bytes it found there (`live bytes entry-4..+15`).
+- V0.7.4: smoke and other effects flickered between two looks above 60 fps (Mhaura's chimney smoke): on frames where
+  no whole gametick passed, the effects got a step of 0, which the game never give them. Now they get the frame's own
+  little share of a tick, so they move smooth and never see 0 (`effects_fraction=1` in speedfix.ini; **0** = the old way).
+- V0.7.3: V0.7.2 was built wrong (gobbie's mistake): its map of the new gamebuild was made from the packed gamefile,
+  so gobbie no recognize any place in the game and every speedfix fixing stayed in the sack (slow game, the log say
+  `differs from the analysed build at +99` many times). V0.7.3 has the right map. Gobbie's package now check for that.
+- V0.7.2: with ReShade's `dxgi.dll` in the gamefolder, on a Mac with Parallels, Direct3D 12 lost its device at the
+  start every time and Direct3D 11 ran instead. Gobbie now try Direct3D 12 once more before giving up, and the log say after
+  which start step the device was lost. On the owner's Mac the second try lost it too. Take ReShade's `dxgi.dll` out for
+  one start to see if Direct3D 12 run without it.
 - Gobbiefiles: `d3d8.dll`, `d8x.exe`, `d8x_arm64.exe` (the renderer), `xikit.dll` (the kit),
   `speedfix.dll`, and the `xikit_manifest*.txt` files (where things is in each gamebuild gobbie know, and a
   sniffprint of each place so gobbie can check it is the build gobbie know; no game code in them). An older
